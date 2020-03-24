@@ -1,0 +1,50 @@
+[
+    {
+        "description": "Province/State/Kanton",
+        "name": "province",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Country/Region",
+        "name": "country",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Last Update",
+        "name": "last_update",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Confirmed",
+        "name": "confirmed",
+        "type": "INT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Deaths",
+        "name": "deaths",
+        "type": "INT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Recovered",
+        "name": "recovered",
+        "type": "INT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Latitude",
+        "name": "latitude",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Longitude",
+        "name": "longitude",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+    }
+]
