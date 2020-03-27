@@ -1,0 +1,17 @@
+{
+  "autodetect": true, 
+  "csvOptions": {
+    "encoding": "UTF-8", 
+    "quote": "\"",
+    "allowJaggedRows": true,
+    "skipLeadingRows": 1
+  }, 
+  "hivePartitioningOptions": {
+    "mode": "AUTO", 
+    "sourceUriPrefix": "gs://af-covid19-data/csse/v2"
+  }, 
+  "sourceFormat": "CSV", 
+  "sourceUris": [
+    "gs://af-covid19-data/csse/v2/*.csv"
+  ]
+}
