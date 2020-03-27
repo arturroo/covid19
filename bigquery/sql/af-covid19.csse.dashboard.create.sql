@@ -1,3 +1,8 @@
+CREATE OR REPLACE TABLE `af-covid19.csse.dashboard` 
+OPTIONS(
+    description="Materialized view for the dashboard, because DataStudio Map graph had problems with selecting day=X from this query."
+)
+AS
 SELECT
     Country_Region
     , sum( Confirmed ) Confirmed
