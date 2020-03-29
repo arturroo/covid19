@@ -109,3 +109,9 @@ bq mk \
 bq query \
     --use_legacy_sql=false \
     < bigquery/sql/af-covid19.csse.dashboard.create.sql
+
+# Daily insert
+bq query \
+    --use_legacy_sql=false \
+    --parameter day:DATE:2020-03-28 \
+    < bigquery/sql/af-covid19.csse.dashboard.daily_insert.sql
