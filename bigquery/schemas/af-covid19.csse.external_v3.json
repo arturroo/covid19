@@ -1,0 +1,74 @@
+[
+    {
+        "description": "FIPS",
+        "name": "FIPS",
+        "type": "INT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Admin2",
+        "name": "Admin2",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Province/State/Kanton",
+        "name": "Province_State",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Country/Region",
+        "name": "Country_Region",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Last Update",
+        "name": "Last_Update",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Lat",
+        "name": "Lat",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Long_",
+        "name": "Long_",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Confirmed",
+        "name": "Confirmed",
+        "type": "INT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Deaths",
+        "name": "Deaths",
+        "type": "INT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Recovered",
+        "name": "Recovered",
+        "type": "INT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Active",
+        "name": "Active",
+        "type": "INT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "Combined_Key",
+        "name": "Combined_Key",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

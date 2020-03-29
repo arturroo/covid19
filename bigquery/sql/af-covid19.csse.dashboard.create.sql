@@ -1,3 +1,8 @@
+CREATE OR REPLACE TABLE `af-covid19.csse.dashboard` 
+OPTIONS(
+    description="Materialized view for the dashboard, because DataStudio Map graph had problems with selecting day=X from this query."
+)
+AS
 SELECT
     Country_Region
     , sum( Confirmed ) Confirmed
@@ -22,7 +27,7 @@ FROM (
             , Deaths
             , Recovered
             , day
-        FROM `af-covid19.data.csse`
+        FROM `af-covid19.csse.data`
     ) Q1 
     WHERE 
       Country_Region in ("China", "South Korea", "Switzerland", "Germany", "Italy", "Spain", "France", "Poland")
