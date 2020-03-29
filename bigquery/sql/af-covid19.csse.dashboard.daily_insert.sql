@@ -1,10 +1,12 @@
-CREATE OR REPLACE TABLE `af-covid19.csse.dashboard` 
-OPTIONS(
-    description="Materialized view for the dashboard, because DataStudio Map graph had problems with selecting day=X from this query."
+INSERT INTO `af-covid19.csse.dashboard` (
+      Country_Region
+    , Confirmed
+    , Deaths
+    , Recovered
+    , day 
 )
-AS
 SELECT
-    Country_Region
+      Country_Region
     , sum( Confirmed ) Confirmed
     , sum( Deaths ) Deaths
     , sum( Recovered ) Recovered
@@ -27,7 +29,9 @@ FROM (
             , Deaths
             , Recovered
             , day
-        FROM `af-covid19.csse.data`
+        FROM `af-covid19.csse.external_v3`
+        WHERE
+            day = @day
     ) Q1 
     WHERE 
       Country_Region in ("China", "South Korea", "Switzerland", "Germany", "Italy", "Spain", "France", "Poland")
