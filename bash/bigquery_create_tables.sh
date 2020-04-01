@@ -113,5 +113,11 @@ bq query \
 # Daily insert
 bq query \
     --use_legacy_sql=false \
-    --parameter day:DATE:2020-03-28 \
+    --parameter day:DATE:2020-04-01 \
     < bigquery/sql/af-covid19.csse.dashboard.daily_insert.sql
+
+# query dasboard materialized view
+bq query \
+    --use_legacy_sql=false \
+    --parameter mv_rows:INT64:5 \
+    < bigquery/sql/af-covid19.csse.dashboard.datastudio_select.sql
