@@ -12,16 +12,17 @@ SELECT
 FROM (
     SELECT 
         *,
-        row_number() OVER (PARTITION BY day, Country_Region, Province_State ORDER BY Last_Update desc) rn
+        row_number() OVER (PARTITION BY day, Country_Region, Province_State, City ORDER BY Last_Update desc) rn
     FROM (
         SELECT 
-            CASE Country_Region
+              Admin2 City
+            , Province_State
+            , CASE Country_Region
                 WHEN "Mainland China" THEN "China"
                 WHEN "Republic of Korea" THEN "South Korea"
                 WHEN "Korea, South" THEN "South Korea"
                 ELSE Country_Region
             END Country_Region
-            , Province_State
             , Last_Update
             , Confirmed
             , Deaths
@@ -30,7 +31,7 @@ FROM (
         FROM `af-covid19.csse.data`
     ) Q1 
     WHERE 
-      Country_Region in ("China", "South Korea", "Switzerland", "Germany", "Italy", "Spain", "France", "Poland", "Sweden", "Japan")
+      Country_Region in ("China", "South Korea", "Switzerland", "Germany", "Italy", "Spain", "France", "Poland", "Sweden", "Japan", "US")
 ) Q2
 WHERE
     rn = 1

@@ -3,7 +3,9 @@
 --     description='COVID19 data gathered by Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE). This view gathers CSSE data with different schemas.'
 -- ) AS
     SELECT
-          Province_State
+          null FIPS
+        , null Admin2
+        , Province_State
         , Country_Region
         , Last_Update
         , Confirmed
@@ -17,7 +19,9 @@
         day <= "2020-02-01"
 UNION ALL
     SELECT
-          Province_State
+          null FIPS
+        , null Admin2
+        , Province_State
         , Country_Region
         , Last_Update
         , Confirmed
@@ -31,7 +35,9 @@ UNION ALL
         day BETWEEN "2020-02-02" AND "2020-03-21"
 UNION ALL
     SELECT
-          Province_State
+          FIPS
+        , Admin2
+        , Province_State
         , Country_Region
         , Last_Update
         , Confirmed
@@ -43,3 +49,4 @@ UNION ALL
     FROM `af-covid19.csse.external_v3`
     WHERE
         day >= "2020-03-22"
+
