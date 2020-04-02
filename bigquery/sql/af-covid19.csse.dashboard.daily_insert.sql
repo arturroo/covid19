@@ -25,7 +25,6 @@ FROM (
                 WHEN "Korea, South" THEN "South Korea"
                 ELSE Country_Region
             END Country_Region
-            , Province_State
             , Last_Update
             , Confirmed
             , Deaths
