@@ -14,10 +14,12 @@ SELECT
 FROM (
     SELECT 
         *,
-        row_number() OVER (PARTITION BY day, Country_Region, Province_State ORDER BY Last_Update desc) rn
+        row_number() OVER (PARTITION BY day, Country_Region, Province_State, City ORDER BY Last_Update desc) rn
     FROM (
         SELECT 
-            CASE Country_Region
+              Admin2 City
+            , Province_State
+            , CASE Country_Region
                 WHEN "Mainland China" THEN "China"
                 WHEN "Republic of Korea" THEN "South Korea"
                 WHEN "Korea, South" THEN "South Korea"
