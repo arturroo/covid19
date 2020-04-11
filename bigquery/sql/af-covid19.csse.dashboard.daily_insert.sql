@@ -35,7 +35,7 @@ FROM (
             day = @day
     ) Q1 
     WHERE 
-      Country_Region in ("China", "South Korea", "Switzerland", "Germany", "Italy", "Spain", "France", "Poland", "Sweden", "Japan", "US")
+      Country_Region in ("Austria", "China", "France", "Germany", "Italy", "Japan", "Poland", "Spain", "South Korea", "Sweden", "Switzerland", "US")
 ) Q2
 WHERE
     rn = 1
