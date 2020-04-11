@@ -14,13 +14,14 @@ logging.basicConfig(level=logging.INFO)
 class Conf:
     project = os.getenv("GOOGLE_CLOUD_PROJECT", "af-covid19")
     bucket = os.getenv("BUCKET", "af-covid19-data")
-    blob_prefix = os.getenv("BLOB_PREFIX", "csse_dev/v19")
+    blob_prefix = os.getenv("BLOB_PREFIX", "csse/v3")
     partition_name = os.getenv("PARTITION_key", "day")
-    import_date = os.getenv("IMPORT_DATE", (datetime.now() - timedelta(1)).strftime('%Y-%m-%d'))
+    import_date = (datetime.now() - timedelta(1)).strftime('%Y-%m-%d')
 
 
 def main(event, context):
     # pubsub_message = base64.b64decode(event['data']).decode('utf-8')
+    logging.info(f"Running for import_date {Conf.import_date}")
     r = get_file()
     save_in_google_storage(r) if r.status_code == 200 else logging.critical(f"CSSE Repo has no file for date {Conf.import_date}.")
 
