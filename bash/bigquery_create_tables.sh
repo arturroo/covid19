@@ -1,3 +1,8 @@
+#################################################
+# Core BigQuery deploy scripts
+# Artur Fejklowicz
+#################################################
+
 ###################################################
 # Create Dataset
 bq --location=europe-west6 mk \
@@ -113,7 +118,7 @@ bq query \
 # Daily insert
 bq query \
     --use_legacy_sql=false \
-    --parameter day:DATE:2020-04-09 \
+    --parameter day:DATE:2020-04-10 \
     < bigquery/sql/af-covid19.csse.dashboard.daily_insert.sql
 
 # query dasboard materialized view
