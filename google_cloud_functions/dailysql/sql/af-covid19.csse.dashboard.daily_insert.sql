@@ -1,4 +1,3 @@
--- old file, new moved to google_cloud_functions/dailysql/sql/af-covid19.csse.dashboard.daily_insert.sql
 INSERT INTO `af-covid19.csse.dashboard` (
       Country_Region
     , Confirmed

@@ -118,8 +118,8 @@ bq query \
 # Daily insert
 bq query \
     --use_legacy_sql=false \
-    --parameter day:DATE:2020-04-10 \
-    < bigquery/sql/af-covid19.csse.dashboard.daily_insert.sql
+    --parameter day:DATE:`date -d "-1 day" +%F` \
+    < google_cloud_functions/dailysql/sql/af-covid19.csse.dashboard.daily_insert.sql
 
 # query dasboard materialized view
 bq query \
