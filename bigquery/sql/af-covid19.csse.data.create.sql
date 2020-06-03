@@ -48,5 +48,21 @@ UNION ALL
         , day
     FROM `af-covid19.csse.external_v3`
     WHERE
+        day BETWEEN "2020-03-22" AND "2020-05-28"
+UNION ALL
+    SELECT
+          FIPS
+        , Admin2
+        , Province_State
+        , Country_Region
+        , Last_Update
+        , Confirmed
+        , Deaths
+        , Recovered
+        , Lat Latitude
+        , Long_ Longitude
+        , day
+    FROM `af-covid19.csse.external_v3`
+    WHERE
         day >= "2020-03-22"
 

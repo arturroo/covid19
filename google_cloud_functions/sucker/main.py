@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.INFO)
 class Conf:
     project = os.getenv("GOOGLE_CLOUD_PROJECT", "af-covid19")
     bucket = os.getenv("BUCKET", "af-covid19-data")
-    blob_prefix = os.getenv("BLOB_PREFIX", "csse/v3")
+    blob_prefix = os.getenv("BLOB_PREFIX", "csse/v4")
     partition_name = os.getenv("PARTITION_key", "day")
 
 

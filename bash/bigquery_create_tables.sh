@@ -20,9 +20,11 @@ BUCKET=gs://af-covid19-data
 DATA_DIR=csse
 TDEF_DIR=bigquery/tables_definitions
 TDESC=(
+    "0 placeholder"
     "schema v1 - day BETWEEN '2020-01-22' AND '2020-02-01'. Timestamp format '1/23/20 17:00'. First schema."
     "schema v2 - day BETWEEN '2020-02-02' AND '2020-03-21'. New timestamp format '2020-03-21T20:43:02' and new columns: latlons."
-    "schema v3 - day BETWEEN '2020-03-22' AND now(). New timestamp format '2020-03-23 23:19:34' and new schema: additional columns. China and US splited to City, State, Country."
+    "schema v3 - day BETWEEN '2020-03-22' AND '2020-05-28'. New timestamp format '2020-03-23 23:19:34' and new schema: additional columns. China and US splited to City, State, Country."
+    "schema v4 - day BETWEEN '2020-05-29' AND now(). New schema: additional columns: Incidence_Rate, Case_Fatality_Ratio. "
     )
 
 for i in 1 2; do
@@ -59,22 +61,24 @@ for i in 1 2; do
         af-covid19:csse.$TABLE
 done
 
-# schema v3 - "2020-03-23 23:19:34" from day 2020-03-22 till now and new schema, new way with schema included
 # new way of load in schema you can specify last_update as STRING and pass schema as parameter to mkdef !!!! not mk
 # do not specify in json schema file hive partitioning, BQ will AUTO recognize it and will add day column automatically
-# with last_update as STRING I can do view that will parse this string accordingly for each day partition.
-# right now this is just to show possibility, because there is not only timestamp format change, but also rest of the schema
-# and it is better to build additional table and then apply general view - schema evolution with CSV
+# with last_update as STRING I can do view that  will parse this string accordingly for each day partition.
+# right now this is ju
+##echo "INFO: BQ: create table definition"
+##echo "bq mkdef \st to show possibility, because there is not only timestamp format change, but also rest of the schema
+# and it is better to build additional table and then apply general view - schema evolution with
+##done CSV
 SCHEMA_VER=3
-TABLE=external_v$SCHEMA_VER
-TDEF=$TDEF_DIR/$TABLE.def
-URI_PREFIX=$BUCKET/$DATA_DIR/v$SCHEMA_VER
-SCHEMA_JSON=bigquery/schemas/af-covid19.csse.$TABLE.json
 echo "INFO: BQ: create table definition"
 echo "bq mkdef \
-    --source_format=CSV \
     --hive_partitioning_mode=AUTO \
     --hive_partitioning_source_uri_prefix=$URI_PREFIX \
+TABLE=external_v$SCHEMA_VER
+TDEF=$TDEF_DIR/$TABLE.def
+URI_PREFIX=$BUCKET/$DATA_DIR/v$SCHEMA_VER    --source_format=CSV \
+
+SCHEMA_JSON=bigquery/schemas/af-covid19.csse.$TABLE.json
     $URI_PREFIX/*.csv \
     $SCHEMA_JSON > $TDEF"
 bq mkdef \

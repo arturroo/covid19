@@ -1,0 +1,106 @@
+{
+  "csvOptions": {
+    "allowJaggedRows": true, 
+    "allowQuotedNewlines": false, 
+    "encoding": "UTF-8", 
+    "fieldDelimiter": ",", 
+    "quote": "\"", 
+    "skipLeadingRows": 1
+  }, 
+  "hivePartitioningOptions": {
+    "mode": "AUTO", 
+    "sourceUriPrefix": "gs://af-covid19-data/csse/v4"
+  }, 
+  "schema": {
+    "fields": [
+      {
+        "description": "FIPS", 
+        "mode": "NULLABLE", 
+        "name": "FIPS", 
+        "type": "INT64"
+      }, 
+      {
+        "description": "Admin2", 
+        "mode": "NULLABLE", 
+        "name": "Admin2", 
+        "type": "STRING"
+      }, 
+      {
+        "description": "Province/State/Kanton", 
+        "mode": "NULLABLE", 
+        "name": "Province_State", 
+        "type": "STRING"
+      }, 
+      {
+        "description": "Country/Region", 
+        "mode": "NULLABLE", 
+        "name": "Country_Region", 
+        "type": "STRING"
+      }, 
+      {
+        "description": "Last Update", 
+        "mode": "NULLABLE", 
+        "name": "Last_Update", 
+        "type": "TIMESTAMP"
+      }, 
+      {
+        "description": "Lat", 
+        "mode": "NULLABLE", 
+        "name": "Lat", 
+        "type": "FLOAT64"
+      }, 
+      {
+        "description": "Long_", 
+        "mode": "NULLABLE", 
+        "name": "Long_", 
+        "type": "FLOAT64"
+      }, 
+      {
+        "description": "Confirmed", 
+        "mode": "NULLABLE", 
+        "name": "Confirmed", 
+        "type": "INT64"
+      }, 
+      {
+        "description": "Deaths", 
+        "mode": "NULLABLE", 
+        "name": "Deaths", 
+        "type": "INT64"
+      }, 
+      {
+        "description": "Recovered", 
+        "mode": "NULLABLE", 
+        "name": "Recovered", 
+        "type": "INT64"
+      }, 
+      {
+        "description": "Active", 
+        "mode": "NULLABLE", 
+        "name": "Active", 
+        "type": "INT64"
+      },
+      {
+        "description": "Combined_Key", 
+        "mode": "NULLABLE", 
+        "name": "Combined_Key", 
+        "type": "STRING"
+      },
+      {
+        "description": "Incidence_Rate",
+        "mode": "NULLABLE",
+        "name": "Incidence_Rate",
+        "type": "FLOAT64"
+      },
+      {
+        "description": "Case-Fatality_Ratio",
+        "mode": "NULLABLE",
+        "name": "Case_Fatality_Ratio",
+        "type": "FLOAT64"
+      }
+    ]
+  }, 
+  "sourceFormat": "CSV", 
+  "sourceUris": [
+    "gs://af-covid19-data/csse/v4/*.csv"
+  ]
+}

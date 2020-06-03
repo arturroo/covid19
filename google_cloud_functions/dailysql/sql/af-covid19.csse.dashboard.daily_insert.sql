@@ -30,7 +30,7 @@ FROM (
             , Deaths
             , Recovered
             , day
-        FROM `af-covid19.csse.external_v3`
+        FROM `af-covid19.csse.external_v4`
         WHERE
             day = @day
     ) Q1 
